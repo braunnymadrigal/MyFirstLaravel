@@ -7,7 +7,7 @@ use App\Http\Controllers\CountryController;
 
 class CreateCountry extends Component
 {
-  public $continent = 'ayaya';
+  public $owner = 'ayaya';
   public function render()
   {
     $instance = new CountryController;
@@ -16,10 +16,14 @@ class CreateCountry extends Component
   }
 
   public function changeOwner() {
-    if($this->continent === 'ayaya') {
-      $this->continent = 'manin';
+    if($this->owner === 'ayaya') {
+      $this->owner = 'manin';
     } else {
-      $this->continent = 'ayaya';
+      $this->owner = 'ayaya';
     }
+  }
+
+  public function saveCountryPlusContinent() {
+    echo($continent);
   }
 }
