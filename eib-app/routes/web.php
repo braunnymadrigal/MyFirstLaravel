@@ -1,10 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Livewire\RegisterUser;
+use App\Livewire\CreateCountry;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registeruser', RegisterUser::class);
+Route::get('/createCountry', CreateCountry::class);
