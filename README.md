@@ -1,47 +1,78 @@
-# PHP, Laravel, Livewire
+# Laravel Development with Livewire Tutorial
 
-## 1
-**Install/Update PHP, Composer and Laravel**
-```bash
-# Run PowerShell as administrator...
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
-``` 
+## Create Project
 
-## 2
-**Create Laravel application**
-Please remind yourself to add livewire when creating the laravel app.
+### 1
+**Install XAMPP.**
+
+[XAMPP](https://www.apachefriends.org/)
+
+### 2
+**Install Composer.**
+
+Please remind to link it with the php.exe file inside ```xampp/php/```
+
+[Composer](https://getcomposer.org/)
+
+### 3
+**Install Laravel via Composer.**
+
 ```bash
-# on this case the name of the app is «eib-site»
+composer global require laravel/installer
+```
+
+### 4
+**Create an Application.**
+
+```bash
 laravel new example-app
 ```
 
-## 3
-**Install Node.js**
-Visit: <https://nodejs.org/en/download/>
+### 5
+**Install Livewire.**
 
-## 4
-**Build for local development**
+```bash
+cd example-app
+composer require livewire/livewire
+```
+
+### 6
+**Run migrations.**
+
+```bash
+cd example-app
+php artisan migrate
+```
+
+### 7
+**Start local development server.**
+
 ```bash
 cd example-app
 npm install
 npm run build
 ```
 
-## 5
-**Start local site**
+### 8
+**Start Vite development server.**
 ```bash
 cd example-app
 composer run dev
-# now the app should be accesible on: http://localhost:8000/
 ```
 
-If the command above fails, do:
-1. Open Powershell
-2. Enter ```php -i```
-3. You are gonna see near the first lines something like this:
-    ```bash
-    Configuration File (php.ini) Path =>
-    Loaded Configuration File => C:\Users\Braunny\.config\herd-lite\bin\php.ini
-    ```
-4. Go to that file.
-5. variables_order should be equal to ```GCPS```
+## Usefull Stuff
+
+### A
+**Create Livewire component.**
+
+```bash
+# https://livewire.laravel.com/docs/components
+php artisan make:livewire random-component
+
+# on web.php, add:
+# use App\Livewire\RandomComponent;
+# Route::get('/myroutelol', RandomComponent::class);
+
+# if first time:
+php artisan livewire:layout
+```
